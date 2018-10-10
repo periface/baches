@@ -17,6 +17,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ReportComponent } from '../components/report/report';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { FirebaseService } from '../services/firebase.service';
 firebase.initializeApp(firebaseConfig);
 
 @NgModule({
@@ -32,7 +34,8 @@ firebase.initializeApp(firebaseConfig);
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +47,7 @@ firebase.initializeApp(firebaseConfig);
     ReportComponent
   ],
   providers: [
+    FirebaseService,
     Geolocation,
     Camera,
     StatusBar,
