@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="menu">
+    <button small (click)="close()" ion-button outline>X</button>
+  </div>
+
+  <div class="buttons-container">
+    <button ion-button outline icon-only (click)="selectPictureFromGallery()">
+      <ion-icon name="images"></ion-icon>
+    </button>
+    <button ion-button outline icon-only (click)="takePictureWithCamera()">
+      <ion-icon name="camera"></ion-icon>
+    </button>
+  </div>
+  <ion-grid no-padding>
+    <div class="img-placeholder">
+      <p *ngIf="this.image===''">
+        No hay imagen cargada...
+      </p>
+      <img *ngIf="this.image !==''" [src]="this.image">
+    </div>
+  </ion-grid>
+  <div class="savebtn">
+    <button block [disabled]="!this.image" color="secondary" ion-button (click)="sendPhoto()">
+      Reportar
+    </button>
+  </div>
+</ion-content>
